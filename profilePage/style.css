@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header_class{   
+    height: 60px;
+    background: #000000;
+    padding: 0 20px;
+    color: #ffffff; 
+    display: flex; 
+    align-items: center;
+}
+
+/* main section styling */
+
+.main_section{
+    margin-left: 20px;
+    padding: 20px;
+}
+
+.main_section h1{
+    text-align: center;
+}
+
+form > .upper_details{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form > .lower_details{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form  input{
+    height: 35px;
+    padding-left: 20px;
+    color: black;
+    font-size: 16px;
+    font-weight: 550;
+}
+
+form input:focus{
+    outline: none;
+}
+
+form button{
+    height: 30px;
+    background-color: #000000;
+    border: none;
+    color: #ffffff;
+    width: 160px;
+    font-size: 14px;
+}
