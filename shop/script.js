@@ -23,7 +23,7 @@ function fetchAPI(){
         console.log(data);
         data.forEach((item) =>{
             item.color = 'green';
-            item.size = '';
+            item.size = 'S,M,Xl';
             localStorage.setItem('apiData',JSON.stringify(data));          
         })        
     })
@@ -39,6 +39,7 @@ const mesnBtn = document.getElementById('mens');
 const womensBtn = document.getElementById('womens');
 const jewelleyBtn = document.getElementById('jewellery');
 const electronicBtn = document.getElementById('electronics');
+const rangeBtn = document.getElementById('inputRange');
 
 // Click event in all buttons
 allBtn.addEventListener('click',getAllItem);
@@ -46,6 +47,15 @@ mesnBtn.addEventListener('click',getMensItem);
 womensBtn.addEventListener('click',getWomensItem);
 jewelleyBtn.addEventListener('click',getJewelleryItem);
 electronicBtn.addEventListener('click',getElectronicsItem);
+rangeBtn.addEventListener('input',getItemOnRating);
+
+const gridContainer = document.getElementsByClassName('grid_container')[0];
+
+function byDefault(){
+    let itemList = JSON.parse(localStorage.getItem('apiData'));
+    displayItems(itemList);
+}
+byDefault();
 
 // All Products---->
 function getAllItem(){
@@ -59,7 +69,7 @@ function getMensItem(){
     let mensfilter = itemList.filter((items)=>{
         return items.category === "men's clothing";
     })
-        displayItems(mensfilter);
+        displayItems(mensfilter,"Men's Clothing");
 }
 
 // womens Products----->
@@ -68,7 +78,7 @@ function getWomensItem(){
     let womensfilter = itemList.filter((items)=>{
         return items.category === "women's clothing";
     })
-        displayItems(womensfilter);  
+        displayItems(womensfilter,"Women's Clothing");  
 }
 
 // Jewellery Products----->
@@ -77,7 +87,7 @@ function getJewelleryItem(){
     let jewelleryFilter = itemList.filter((items)=>{
         return items.category === "jewelery";
     })
-        displayItems(jewelleryFilter);
+        displayItems(jewelleryFilter,"Jewellery");
 }
 
 // Electronics Products----->
@@ -86,16 +96,26 @@ function getElectronicsItem(){
     let electronicFilter = itemList.filter((items)=>{
         return items.category === "electronics";
     })
-        displayItems(electronicFilter);
+        displayItems(electronicFilter,"Electronic's");
+}
+
+// Rated Products
+function getItemOnRating(){
+    let itemList = JSON.parse(localStorage.getItem('apiData'));
+    let rateUnder = itemList.filter((items)=>{
+        return items.rating.rate <= rangeBtn.value;
+    })
+        displayItems(rateUnder);
 }
 
 // Display Container ---->
-const gridContainer = document.getElementsByClassName('grid_container')[0];
 
-function displayItems(filters){
+
+function displayItems(filters,status){
     gridContainer.innerHTML = '';
 
     filters.forEach((data) =>{
+        document.getElementById('display_cate').innerText = status;
         const itemDetails = document.createElement('div');
         itemDetails.className = 'show_item';
         itemDetails.innerHTML = `
@@ -103,7 +123,7 @@ function displayItems(filters){
         <div class="otheDetails">
             <div class="price_Size">
                 <div id="price">$${data.price}</div>
-                <div id="sizes">S,M,L</div>
+                <div id="sizes">${data.size}</div>
             </div>
             <div id="color">Colors : ***</div>
             <div id="rating">Rating :${data.rating.rate}/5</div>

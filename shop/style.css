@@ -93,14 +93,14 @@
     width: calc(100% - 200px);
     height: calc(100% - 60px);
     padding: 10px;
-    background-color: lightblue;
+    /* background-color: lightblue; */
 }
 .main_body_container::-webkit-scrollbar{
     display: none;
 }
 .upper_tools{
     position: absolute;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 96%;
 }
 
@@ -135,15 +135,24 @@
 .catagoryBtn > button{
     width: 170px;
     height: 30px;
+    cursor: pointer;
+}
+
+.cate_container{
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    height: 100%;
+    /* background-color: lightgreen; */
 }
 
 .grid_container{
     position: absolute;
-    top: 100px;
-    width: 90%;
-    border: 1px solid red;
+    margin-top: 10px;
+    width: 80%;
+    /* border: 1px solid red; */
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     row-gap: 20px;
     column-gap: 10px;
 }
@@ -177,4 +186,51 @@
     color:#ffffff;
     background-color: #000000;
     border: none;
+}
+
+.applyFilter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.applyFilter > #filterBtn{
+    width: 90px;
+    height:30px;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+
+}
+
+
+/* Responsive */
+@media (max-width: 750px){
+    .header_class{
+        width: 100%;
+        height: 60px;
+        padding: 0 5px;
+    }
+    .upper_tools > .catagoryBtn{
+        width: 400px;
+    }
+
+    .catagoryBtn > button{
+        width: 60px;
+    }
+
+    .upper_tools > #search_bar{
+        width: 50%;
+    }
+
+    #search_bar > #searchInput{
+        width: 30%;
+    }
+
+    .grid_container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }

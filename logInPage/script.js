@@ -28,7 +28,7 @@ loginButton.addEventListener('click',(event)=>{
                 if(currentUser.password === password.value.trim()){
                     sessionStorage.setItem('userLoggedIn',JSON.stringify(currentUser));
                     alert('Login successful!');
-                    window.location.href='../profilePage';
+                    window.location.href='../shop';
                     // email.value='';
                     // password.value='';
                 }

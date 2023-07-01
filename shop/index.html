@@ -47,11 +47,11 @@
                 <form action="">
                     <div class="range">
                         
-                        <input type="range" id="inputRange" min="0" max="100" value="0"><br>
+                        <input type="range" id="inputRange" min="0" max="5" step="0.1" value="0"/><br>
                   
                         <div class="min_max">
                             <div id="left">0</div>
-                            <div id="right">100</div>
+                            <div id="right">5</div>
                         </div>
                         
                     </div>
@@ -68,7 +68,9 @@
                 </form>     
             </div>
 
-            <br/>
+            <div class="applyFilter">
+                <button id="filterBtn">Apply Filter</button>
+            </div>
             
 
             
@@ -90,17 +92,21 @@
                 </div>
             </div>
 
-            <div class="grid_container">
-                <!-- <div class="show_item"> -->
-                    <!-- <div id="showImg"><img src="./tshirt.png" alt="###"></div>
-                    <div class="price_Size">
-                        <div id="price">$100</div>
-                        <div id="sizes">S,M,L</div>
-                    </div>
-                    <div id="color">Colors : ***</div>
-                    <div id="rating">Rating : ***</div>
-                    <button id="addToCart">Add To Cart</button> -->
-                <!-- </div> -->
+            <div class="cate_container">
+                <h2 id="display_cate">Men's Clothing</h2>
+                <div class="grid_container">
+                    
+                    <!-- <div class="show_item">
+                        <div id="showImg"><img src="./tshirt.png" alt="###"></div>
+                        <div class="price_Size">
+                            <div id="price">$100</div>
+                            <div id="sizes">S,M,L</div>
+                        </div>
+                        <div id="color">Colors : ***</div>
+                        <div id="rating">Rating : ***</div>
+                        <button id="addToCart">Add To Cart</button>
+                    </div> -->
+                </div>
             </div>
 
         </div>
